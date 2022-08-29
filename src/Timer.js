@@ -1,6 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom'; 
 import './Timer.css'
+import TimeList from './TimeList'
 
 
 
@@ -64,6 +65,15 @@ class Timer extends React.Component{
         })
 
     }
+    handelSaveTime=()=>{
+        let h = this.state.hr
+        let m = this.state.min
+        let s = this.state.second
+        let newTime = `${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}` 
+        this.props.setTimeArr([...this.props.timeArr , newTime])
+            
+               
+    }
     render(){
 
         let h = this.state.hr
@@ -72,7 +82,7 @@ class Timer extends React.Component{
 
     return(
         <div className='timer' >
-            <div className='time-content'>
+            <div className='time-content' onClick={this.handelSaveTime}>
                 {`${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}` }
             </div>
             <div className='btn-content'>
@@ -81,6 +91,9 @@ class Timer extends React.Component{
                 <button className='btn-time' onClick={this.resetTime} >RESET</button>
                 
             </div>
+            <TimeList>
+                {this.props.timeArr}
+            </TimeList>
             
         </div>
         )
