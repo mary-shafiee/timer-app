@@ -1,0 +1,45 @@
+
+.timer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem;
+    width: 200px;
+    height: 200px; */
+}
+.time-content{
+   
+    background-color: rgb(240, 153, 13);
+    padding: 1rem;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 21px 21px 86px 27px #322F2F;
+    color: #F0EBEB;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.btn-content{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-time{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: #585555;
+    color: black;
+    font:bolder;
+}
+.btn-time:hover{
+    background-color: #322F2F;
+}
