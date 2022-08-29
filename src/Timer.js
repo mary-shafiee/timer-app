@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom'; 
 import './Timer.css'
-import TimeList from './TimeList'
+import { TestContext } from './testContext';
 
 
 
@@ -22,6 +22,7 @@ class Timer extends React.Component{
         }
         
     } 
+    static contextType = TestContext;
     
     startTime =()=> {
         if (this.state.isStart === true){
@@ -66,11 +67,12 @@ class Timer extends React.Component{
 
     }
     handelSaveTime=()=>{
-        let h = this.state.hr
-        let m = this.state.min
-        let s = this.state.second
-        let newTime = `${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}` 
-        this.props.setTimeArr([...this.props.timeArr , newTime])
+        // let h = this.state.hr
+        // let m = this.state.min
+        // let s = this.state.second
+        // let newTime = `${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}` 
+        let newTime = document.querySelector('.time-content').innerHTML;
+        this.context.setTimeArr([...this.context.timeArr , newTime])
             
                
     }
@@ -91,9 +93,7 @@ class Timer extends React.Component{
                 <button className='btn-time' onClick={this.resetTime} >RESET</button>
                 
             </div>
-            <TimeList>
-                {this.props.timeArr}
-            </TimeList>
+            
             
         </div>
         )
